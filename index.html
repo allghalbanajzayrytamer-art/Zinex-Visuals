@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZINEX | Amine OV</title>
     
-    <title>ZINEX | Amine OV Portfolio</title>
-    <meta name="description" content="ZINEX | Portfolio - المصمم والمطور الإبداعي أمين">
+    <link rel="icon" type="image/png" href="logo.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
@@ -14,7 +14,6 @@
             --gold: #d4af37;
             --dark: #050505;
             --gray: #a8a8a8;
-            --fb-blue: #1877F2;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -24,26 +23,27 @@
             background: var(--dark);
             color: white;
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        /* NAVIGATION */
+        /* NAVIGATION المحدث باللوغو */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 20px 6%;
+            padding: 15px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
 
-        .logo { color: var(--gold); font-weight: bold; letter-spacing: 4px; font-size: 1.2rem; text-transform: uppercase; }
+        .logo-img {
+            height: 40px; /* يمكنك التحكم في حجم اللوغو هنا */
+            width: auto;
+        }
 
-        /* HERO SECTION WITH VIDEO */
         .hero {
             position: relative;
             height: 100vh;
@@ -56,10 +56,8 @@
 
         .back-video {
             position: absolute;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
+            right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
             z-index: -1;
             object-fit: cover;
             filter: brightness(0.3);
@@ -69,10 +67,8 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(50px, 10vw, 100px);
             letter-spacing: 10px;
-            animation: fadeUp 1.5s ease-out;
         }
 
-        /* ABOUT SECTION */
         .about {
             padding: 120px 10%;
             display: flex;
@@ -82,16 +78,12 @@
             background: #080808;
         }
 
-        .about-image { flex: 1; min-width: 300px; }
         .about-image img {
             width: 100%;
-            border-radius: 4px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .about-text { flex: 1.2; min-width: 300px; }
-        
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -107,14 +99,6 @@
         .btn:hover { background: var(--gold); color: black; }
         .btn-gold { background: var(--gold); color: black; font-weight: bold; }
 
-        .btn-fb { border-color: var(--fb-blue); }
-        .btn-fb:hover { background: var(--fb-blue); color: white; }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         @media (max-width: 768px) {
             .about { flex-direction: column; text-align: center; }
         }
@@ -123,8 +107,10 @@
 <body>
 
 <nav>
-    <div class="logo">ZINEX</div>
-    <div style="font-weight: 300; font-size: 11px; letter-spacing: 2px;">AMINE OV</div>
+    <a href="index.html">
+        <img src="logo.png" alt="ZINEX Logo" class="logo-img">
+    </a>
+    <div style="font-weight: 300; font-size: 11px; letter-spacing: 2px; color: var(--gold);">ZINEX VISUALS</div>
 </nav>
 
 <section class="hero">
@@ -134,35 +120,34 @@
     
     <div class="hero-content">
         <p style="letter-spacing: 5px; opacity: 0.7;">CREATIVE DIGITAL ARCHITECT</p>
-        <h1>ZINEX</h1>
+        <h1 style="color: var(--gold);">ZINEX</h1>
         <a href="#about" class="btn" style="margin-top: 30px;">اكتشف القصة</a>
     </div>
 </section>
 
 <section id="about" class="about">
-    <div class="about-image">
+    <div class="about-image" style="flex: 1; min-width: 300px;">
         <img src="amine-profile.jpg" alt="Amine OV Portfolio">
     </div>
 
-    <div class="about-text">
+    <div class="about-text" style="flex: 1.2; min-width: 300px;">
         <span style="color: var(--gold); letter-spacing: 4px; font-weight: 300; font-size: 12px;">EST. 2026</span>
         <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(35px, 5vw, 55px); line-height: 1.2; margin: 20px 0;">
             تجسيد الفخامة <br> في كل بكسل.
         </h2>
         <p style="color: var(--gray); font-size: 17px; max-width: 500px; font-weight: 300; line-height: 1.8;">
-            أنا أمين، متخصص في صياغة التجارب الرقمية الفريدة. هنا، ندمج الفن السينمائي مع قوة التكنولوجيا لنخلق بصمة لا تُنسى.
+            أنا أمين، متخصص في صياغة التجارب الرقمية الفريدة. اللوغو الجديد يمثل بصمتنا في عالم الإبداع البصري.
         </p>
         
         <div style="display: flex; gap: 15px; margin-top: 40px; flex-wrap: wrap;">
             <a href="gallery.html" class="btn btn-gold">الرؤية</a>
-            
-            <a href="https://www.facebook.com/share/1B8VoM4pHn/" class="btn btn-fb" target="_blank">Facebook</a>
             <a href="https://wa.me/213663190202" class="btn" style="border-color: #25D366;" target="_blank">WhatsApp</a>
         </div>
     </div>
 </section>
 
 <footer style="padding: 50px; text-align: center; border-top: 1px solid #111;">
+    <img src="logo.png" alt="Small Logo" style="height: 30px; opacity: 0.5; margin-bottom: 20px;">
     <p style="font-size: 10px; opacity: 0.4; letter-spacing: 2px;">© 2026 ZINEX STUDIO | BEYOND VISUALS</p>
 </footer>
 
