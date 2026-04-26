@@ -11,6 +11,7 @@
         :root {
             --gold: #d4af37;
             --dark: #050505;
+            --black: #000000;
             --gray: #a8a8a8;
         }
 
@@ -18,9 +19,10 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--dark);
+            background: var(--black); /* أسود خالص للخلفية */
             color: white;
             line-height: 1.6;
+            overflow-x: hidden; /* لمنع ظهور شريط التمرير الأفقي */
         }
 
         nav {
@@ -29,6 +31,9 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            background: var(--black);
+            position: relative;
+            z-index: 10;
         }
 
         .logo { 
@@ -40,48 +45,66 @@
         }
 
         .gallery-header {
-            padding: 80px 10% 40px;
+            padding: 100px 10% 60px;
             text-align: center;
+            background: linear-gradient(to bottom, var(--black), #080808);
         }
 
         .gallery-header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 50px;
-            margin-bottom: 10px;
+            font-size: clamp(35px, 6vw, 60px);
+            margin-bottom: 15px;
         }
 
-        /* شبكة الصور */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px 10%;
-        }
-
-        .grid-item {
-            position: relative;
-            aspect-ratio: 4/5;
+        /* حاوية المعرض المتحرك */
+        .slider-container {
+            width: 100%;
             overflow: hidden;
-            background: #111;
-            border: 1px solid rgba(255,255,255,0.05);
+            padding: 40px 0;
+            background: #050505;
         }
 
-        .grid-item img {
+        .slider-track {
+            display: flex;
+            gap: 15px;
+            /* عرض الحركة: عدد الفيديوهات * عرض الفيديو الواحد + الفجوات */
+            width: calc(300px * 10 + 15px * 9); 
+            animation: scrollStream 25s linear infinite; /* حركة مستمرة */
+        }
+
+        /* تنسيق عنصر الفيديو الواحد */
+        .slider-item {
+            width: 300px;
+            aspect-ratio: 16/9; /* تنسيق سينمائي */
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 1px solid rgba(212,175,55,0.1);
+            transition: 0.5s;
+        }
+
+        .slider-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-            filter: grayscale(100%) brightness(0.7);
+            filter: grayscale(100%) brightness(0.7); /* تأثير سينمائي غامق */
+            transition: 0.5s;
         }
 
-        .grid-item:hover img {
+        /* تفعيل الألوان والسطوع عند تمرير الفأرة */
+        .slider-item:hover video {
             filter: grayscale(0%) brightness(1);
             transform: scale(1.05);
         }
 
+        /* كود الحركة المستمرة (Seamless Scroll) */
+        @keyframes scrollStream {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-300px * 5 - 15px * 5)); } /* التوقف عند نصف عدد العناصر لتكرار الحركة */
+        }
+
         .back-link {
             display: inline-block;
-            margin-top: 40px;
+            margin: 60px 0;
             color: var(--gold);
             text-decoration: none;
             font-size: 12px;
@@ -89,14 +112,17 @@
             text-transform: uppercase;
             border-bottom: 1px solid var(--gold);
             padding-bottom: 5px;
+            transition: 0.3s;
         }
+        .back-link:hover { color: white; border-color: white; }
 
         footer {
             padding: 60px;
             text-align: center;
-            opacity: 0.4;
+            opacity: 0.3;
             font-size: 10px;
             letter-spacing: 2px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
     </style>
 </head>
@@ -104,24 +130,68 @@
 
 <nav>
     <a href="index.html" class="logo">ZINEX</a>
-    <div style="font-weight: 300; font-size: 11px;">ARCHIVE</div>
+    <div style="font-weight: 300; font-size: 11px;">ARCHIVE.MOV</div>
 </nav>
 
 <div class="gallery-header">
-    <span style="color: var(--gold); letter-spacing: 5px; font-size: 12px;">VISUAL JOURNEY</span>
-    <h1>معرض الأعمال</h1>
-    <p style="color: var(--gray); font-weight: 300;">مجموعة مختارة من المشاريع والرؤى البصرية.</p>
+    <span style="color: var(--gold); letter-spacing: 5px; font-size: 12px;">MOVING ART</span>
+    <h1>أرشيف الحركة</h1>
+    <p style="color: var(--gray); font-weight: 300; max-width: 600px; margin: 0 auto;">استكشف نماذج من الإخراج الفني والديناميكية الرقمية. المعرض يتحرك تلقائياً لتجسيد الرؤية.</p>
 </div>
 
-<div class="grid">
-    <div class="grid-item">
-        <img src="amine-profile.jpg" alt="Work 1">
-    </div>
-    <div class="grid-item">
-        <img src="https://images.unsplash.com/photo-1492691523567-6172152e0dd6?q=80&w=600" alt="Work 2">
-    </div>
-    <div class="grid-item">
-        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=600" alt="Work 3">
+<div class="slider-container">
+    <div class="slider-track">
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-man-coding-on-a-computer-27320-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-flying-over-a-futuristic-city-34300-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-forest-drone-shot-34110-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-code-background-34291-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-view-of-a-dj-controlling-a-sound-mixer-21782-large.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-man-coding-on-a-computer-27320-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-flying-over-a-futuristic-city-34300-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-forest-drone-shot-34110-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-code-background-34291-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="slider-item">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-view-of-a-dj-controlling-a-sound-mixer-21782-large.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
 </div>
 
