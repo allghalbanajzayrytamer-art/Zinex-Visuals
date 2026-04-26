@@ -8,17 +8,17 @@
     <meta name="description" content="ZINEX | Portfolio - المصمم والمطور الإبداعي أمين">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://allghalbanajzayrytamer-art.github.io/Store-zinex/">
+    <meta property="og:url" content="https://allghalbanajzayrytamer-art.github.io/Zinex-Visuals/">
     <meta property="og:title" content="ZINEX | Amine OV Portfolio">
     <meta property="og:description" content="استكشف عالم التصميم السينمائي والفخامة الرقمية مع Amine OV.">
-    <meta property="og:image" content="https://allghalbanajzayrytamer-art.github.io/Store-zinex/amine-profile.jpg">
+    <meta property="og:image" content="https://allghalbanajzayrytamer-art.github.io/Zinex-Visuals/amine-profile.jpg">
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://allghalbanajzayrytamer-art.github.io/Store-zinex/">
+    <meta property="twitter:url" content="https://allghalbanajzayrytamer-art.github.io/Zinex-Visuals/">
     <meta property="twitter:title" content="ZINEX | Amine OV Portfolio">
-    <meta property="twitter:image" content="https://allghalbanajzayrytamer-art.github.io/Store-zinex/amine-profile.jpg">
+    <meta property="twitter:image" content="https://allghalbanajzayrytamer-art.github.io/Zinex-Visuals/amine-profile.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -74,7 +74,7 @@
             animation: fadeUp 1.5s ease-out;
         }
 
-        /* ABOUT SECTION */
+        /* ABOUT SECTION (الفخم الجديد) */
         .about {
             padding: 120px 10%;
             display: flex;
@@ -90,12 +90,13 @@
             border-radius: 4px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            filter: grayscale(20%);
             transition: 0.5s;
         }
+        .about-image img:hover { filter: grayscale(0%); border-color: var(--gold); }
 
         .about-text { flex: 1.2; min-width: 300px; }
-        .about-text h2 { font-family: 'Playfair Display'; font-size: 45px; margin: 15px 0; }
-
+        
         .btn {
             display: inline-block;
             padding: 15px 40px;
@@ -106,7 +107,6 @@
             font-size: 13px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 20px;
         }
 
         .btn:hover { background: var(--gold); color: black; }
@@ -118,6 +118,7 @@
 
         @media (max-width: 768px) {
             .about { flex-direction: column; text-align: center; }
+            .about-text h2 { font-size: 35px; }
         }
     </style>
 </head>
@@ -132,7 +133,7 @@
     <div class="hero-content">
         <p style="letter-spacing: 5px; opacity: 0.7;">CREATIVE DIGITAL ARCHITECT</p>
         <h1>ZINEX</h1>
-        <a href="#about" class="btn">اكتشف المزيد</a>
+        <a href="#about" class="btn" style="margin-top: 30px;">اكتشف المزيد</a>
     </div>
 </section>
 
@@ -142,19 +143,21 @@
     </div>
 
     <div class="about-text">
-        <span style="color: var(--gold); letter-spacing: 3px;">الرؤية الإبداعية</span>
-        <h2>Amine OV</h2>
-        <p style="color: var(--gray); font-size: 18px;">
-            مصمم ومطور ويب متخصص في بناء واجهات رقمية فاخرة تعكس الهوية البصرية بأعلى معايير الدقة والجمال السينمائي.
+        <span style="color: var(--gold); letter-spacing: 4px; font-weight: 300; font-size: 12px;">EST. 2026</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(35px, 5vw, 55px); line-height: 1.2; margin: 20px 0;">
+            نصنع الواقع الرقمي <br> بلمسة سينمائية.
+        </h2>
+        <p style="color: var(--gray); font-size: 17px; max-width: 500px; font-weight: 300; line-height: 1.8;">
+            أنا أمين، مهندس رؤى بصرية ومطور ويب. لا أصمم مجرد مواقع، بل أبني تجارب رقمية خالدة تجمع بين فخامة الماضي وتكنولوجيا المستقبل. كل بكسل هنا مدروس ليعكس التميز.
         </p>
-        <div style="display: flex; gap: 20px;">
-            <a href="gallery.html" class="btn">معرض الأعمال</a>
-            <a href="https://wa.me/213000000000" class="btn" style="border-color: #25D366;">تواصل واتساب</a>
+        <div style="display: flex; gap: 20px; margin-top: 40px; flex-wrap: wrap;">
+            <a href="gallery.html" class="btn" style="background: var(--gold); color: black;">استعراض الأرشيف</a>
+            <a href="https://wa.me/213000000000" class="btn" style="border: 1px solid rgba(255,255,255,0.2);">استشارة فنية</a>
         </div>
     </div>
 </section>
 
-<footer style="padding: 50px; text-align: center; border-top: 1px solid #111;">
+<footer style="padding: 50px; text-align: center; border-top: 1px solid #111; background: #050505;">
     <p style="font-size: 10px; opacity: 0.4; letter-spacing: 2px;">© 2026 ZINEX STUDIO | BY AMINE OV</p>
 </footer>
 
