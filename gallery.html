@@ -1,171 +1,137 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZINEX | Archive Gallery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+    <title>Archive | ZINEX Visuals</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
     <style>
-        :root { 
-            --gold: #d4af37; 
-            --bg: #050505; 
-            --card-bg: rgba(255,255,255,0.02);
+        :root {
+            --gold: #d4af37;
+            --dark: #050505;
+            --gray: #a8a8a8;
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body { 
-            background: var(--bg); 
-            color: white; 
-            font-family: 'Montserrat', sans-serif; 
-            padding: 40px 5%; 
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--dark);
+            color: white;
+            line-height: 1.6;
         }
 
-        /* Header */
-        header { text-align: center; margin-bottom: 80px; margin-top: 40px; }
-        header h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(40px, 8vw, 60px); 
-            letter-spacing: 15px; 
-            color: var(--gold);
-            text-transform: uppercase;
+        nav {
+            padding: 30px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
-        header p { opacity: 0.5; letter-spacing: 5px; font-size: 12px; margin-top: 15px; }
 
-        /* Grid System */
+        .logo { 
+            color: var(--gold); 
+            text-decoration: none;
+            font-weight: bold; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+        }
+
+        .gallery-header {
+            padding: 80px 10% 40px;
+            text-align: center;
+        }
+
+        .gallery-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* شبكة الصور */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 20px;
+            padding: 40px 10%;
         }
 
-        .card {
+        .grid-item {
             position: relative;
+            aspect-ratio: 4/5;
             overflow: hidden;
-            aspect-ratio: 3 / 4; /* توحيد حجم الصور */
-            cursor: pointer;
+            background: #111;
             border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .card img {
-            width: 100%; height: 100%;
+        .grid-item img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            filter: grayscale(100%) brightness(0.6); /* ستايل قديم وفخم */
-            transition: 0.8s;
+            transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            filter: grayscale(100%) brightness(0.7);
         }
 
-        .card:hover { border-color: var(--gold); }
-        .card:hover img { 
-            filter: grayscale(0%) brightness(1); 
-            transform: scale(1.1); 
+        .grid-item:hover img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.05);
         }
 
-        .tag {
-            position: absolute; bottom: 20px; left: 20px;
-            font-size: 10px; letter-spacing: 3px;
-            border-left: 2px solid var(--gold);
-            padding-left: 10px;
-            background: rgba(0,0,0,0.5);
-            padding-right: 10px;
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 5px;
         }
 
-        /* Lightbox (نافذة تكبير الصور) */
-        .lightbox {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(15px);
-            display: none; align-items: center; justify-content: center;
-            z-index: 2000;
-        }
-
-        .lightbox img {
-            max-width: 90%; max-height: 85vh;
-            border: 1px solid var(--gold);
-            box-shadow: 0 0 50px rgba(0,0,0,1);
-        }
-
-        .close { 
-            position: absolute; top: 30px; right: 40px; 
-            font-size: 40px; color: var(--gold); cursor: pointer; 
-        }
-
-        .btn-back {
-            display: inline-block; margin-bottom: 20px;
-            color: var(--gold); text-decoration: none; 
-            font-size: 12px; letter-spacing: 2px;
-            border: 1px solid var(--gold);
-            padding: 10px 20px;
-            transition: 0.3s;
-        }
-        .btn-back:hover { background: var(--gold); color: black; }
-
-        @media (max-width: 600px) {
-            header h1 { letter-spacing: 5px; }
+        footer {
+            padding: 60px;
+            text-align: center;
+            opacity: 0.4;
+            font-size: 10px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
-<a href="index.html" class="btn-back">← العودة للرئيسية</a>
+<nav>
+    <a href="index.html" class="logo">ZINEX</a>
+    <div style="font-weight: 300; font-size: 11px;">ARCHIVE</div>
+</nav>
 
-<header>
-    <h1>ARCHIVE</h1>
-    <p>أبرز المشاريع والتصاميم</p>
-</header>
+<div class="gallery-header">
+    <span style="color: var(--gold); letter-spacing: 5px; font-size: 12px;">VISUAL JOURNEY</span>
+    <h1>معرض الأعمال</h1>
+    <p style="color: var(--gray); font-weight: 300;">مجموعة مختارة من المشاريع والرؤى البصرية.</p>
+</div>
 
 <div class="grid">
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Work 1">
-        <div class="tag">AUTOMOTIVE</div>
+    <div class="grid-item">
+        <img src="amine-profile.jpg" alt="Work 1">
     </div>
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb" alt="Work 2">
-        <div class="tag">PORTRAITS</div>
+    <div class="grid-item">
+        <img src="https://images.unsplash.com/photo-1492691523567-6172152e0dd6?q=80&w=600" alt="Work 2">
     </div>
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7" alt="Work 3">
-        <div class="tag">LUXURY</div>
-    </div>
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f" alt="Work 4">
-        <div class="tag">TECH</div>
+    <div class="grid-item">
+        <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=600" alt="Work 3">
     </div>
 </div>
 
-<div class="lightbox" id="lightbox">
-    <span class="close" onclick="closeLB()">×</span>
-    <img id="lbImg" src="">
-</div>
+<center>
+    <a href="index.html" class="back-link">العودة للرئيسية</a>
+</center>
 
-<script>
-    const lb = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-
-    // فتح الصورة عند الضغط عليها
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', () => {
-            lb.style.display = "flex";
-            lbImg.src = card.querySelector('img').src;
-            document.body.style.overflow = "hidden"; // منع التمرير في الخلفية
-        });
-    });
-
-    // إغلاق النافذة
-    function closeLB() {
-        lb.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-
-    // إغلاق عند الضغط في أي مكان خارج الصورة
-    lb.addEventListener('click', (e) => {
-        if(e.target === lb) closeLB();
-    });
-</script>
+<footer>
+    © 2026 ZINEX STUDIO | BY AMINE OV
+</footer>
 
 </body>
 </html>
