@@ -5,87 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Vision | ZINEX Visuals</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --gold: #d4af37; --black: #000000; --gray: #a8a8a8; }
+        :root { --gold: #d4af37; --black: #050505; --gray: #1a1a1a; --text-gray: #a8a8a8; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--black); color: white; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--black); color: white; overflow-x: hidden; line-height: 1.6; }
         
-        nav { padding: 30px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-        .logo { color: var(--gold); text-decoration: none; font-weight: bold; letter-spacing: 4px; text-transform: uppercase; }
+        /* Navigation */
+        nav { padding: 25px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.1); position: sticky; top: 0; background: rgba(5, 5, 5, 0.9); z-index: 1000; backdrop-filter: blur(10px); }
+        .logo { color: var(--gold); text-decoration: none; font-weight: bold; letter-spacing: 4px; text-transform: uppercase; font-size: 1.2rem; }
 
-        .gallery-header { padding: 60px 10% 20px; text-align: center; }
-        .gallery-header h1 { font-family: 'Playfair Display', serif; font-size: 45px; margin-bottom: 10px; letter-spacing: 2px; }
+        /* Header */
+        .gallery-header { padding: 80px 10% 40px; text-align: center; }
+        .gallery-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 55px); margin-bottom: 15px; letter-spacing: 2px; color: white; }
+        .separator { width: 50px; height: 1px; background: var(--gold); margin: 20px auto; }
 
-        .profile-showcase {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 40px;
-            padding: 0 5%;
+        /* Profile Section */
+        .profile-showcase { width: 100%; max-width: 400px; margin: 0 auto 60px; padding: 0 20px; position: relative; }
+        .profile-showcase img { width: 100%; border: 1px solid rgba(212, 175, 55, 0.3); padding: 8px; filter: grayscale(100%); transition: 1s cubic-bezier(0.4, 0, 0.2, 1); }
+        .profile-showcase:hover img { filter: grayscale(0%); transform: translateY(-5px); border-color: var(--gold); }
+
+        /* Creative Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; padding: 20px 8%; }
+        .grid-item { position: relative; overflow: hidden; background: var(--gray); border-radius: 2px; cursor: pointer; height: 450px; }
+        
+        .grid-item video, .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1); filter: brightness(0.7); }
+
+        /* Overlay Effect */
+        .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; opacity: 0; transition: 0.5s; }
+        .grid-item:hover .overlay { opacity: 1; }
+        .grid-item:hover video, .grid-item:hover img { transform: scale(1.1); filter: brightness(1); }
+        
+        .overlay h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.5rem; margin-bottom: 5px; }
+        .overlay p { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-gray); }
+
+        /* Call to Action */
+        .cta-section { padding: 100px 10%; text-align: center; background: #080808; margin-top: 50px; }
+        .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 15px 35px; text-decoration: none; font-size: 12px; letter-spacing: 2px; transition: 0.4s; text-transform: uppercase; cursor: pointer; }
+        .btn-whatsapp:hover { background: var(--gold); color: black; }
+
+        .back-link { display: inline-block; margin: 40px 0; color: var(--text-gray); text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; border-bottom: 1px solid transparent; }
+        .back-link:hover { color: var(--gold); letter-spacing: 4px; border-bottom: 1px solid var(--gold); }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; padding: 20px 5%; }
+            .grid-item { height: 350px; }
         }
-        .profile-showcase img {
-            width: 100%;
-            border: 1px solid var(--gold);
-            padding: 5px;
-            filter: grayscale(20%);
-            transition: 0.8s;
-        }
-        .profile-showcase img:hover { filter: grayscale(0%); transform: scale(1.02); }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-            padding: 20px 10%;
-        }
-
-        .grid-item {
-            position: relative;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .grid-item video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) brightness(0.4);
-            transition: 0.6s;
-        }
-
-        .grid-item:hover video {
-            filter: grayscale(0%) brightness(1);
-        }
-
-        .back-link { display: inline-block; margin: 40px 0; color: var(--gold); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 5px; }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="index.html" class="logo">ZINEX</a>
-    <div style="font-weight: 300; font-size: 11px; letter-spacing: 2px;">THE VISION</div>
+    <div style="font-weight: 300; font-size: 10px; letter-spacing: 2px; color: var(--text-gray);">THE VISION</div>
 </nav>
 
 <div class="gallery-header">
-    <span style="color: var(--gold); letter-spacing: 5px; font-size: 11px;">PERSONAL SHOWCASE</span>
+    <span style="color: var(--gold); letter-spacing: 5px; font-size: 10px; text-transform: uppercase;">Personal Showcase</span>
     <h1>الرؤية الإبداعية</h1>
+    <div class="separator"></div>
 </div>
 
 <div class="profile-showcase">
     <img src="amine-profile.jpg" alt="Amine OV">
+    <p style="text-align: center; margin-top: 15px; font-size: 12px; letter-spacing: 3px; color: var(--gold);">AMINE OV</p>
 </div>
 
 <div class="grid">
-    <div class="grid-item"><video autoplay loop muted playsinline><source src="gallery-vid.mp4" type="video/mp4"></video></div>
-    <div class="grid-item"><video autoplay loop muted playsinline><source src="gallery-vid.mp4" type="video/mp4"></video></div>
-    <div class="grid-item"><video autoplay loop muted playsinline><source src="gallery-vid.mp4" type="video/mp4"></video></div>
-    <div class="grid-item"><video autoplay loop muted playsinline><source src="gallery-vid.mp4" type="video/mp4"></video></div>
+    <div class="grid-item">
+        <video autoplay loop muted playsinline><source src="gallery-vid.mp4" type="video/mp4"></video>
+        <div class="overlay">
+            <p>Cinematic Motion</p>
+            <h3>Urban Silence</h3>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <video autoplay loop muted playsinline><source src="gallery-vid.mp4" type="video/mp4"></video>
+        <div class="overlay">
+            <p>Visual Arts</p>
+            <h3>Digital Noir</h3>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600&auto=format&fit=crop" alt="Editorial Photography">
+        <div class="overlay">
+            <p>Editorial Photography</p>
+            <h3>Old Money Style</h3>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <video autoplay loop muted playsinline><source src="gallery-vid.mp4" type="video/mp4"></video>
+        <div class="overlay">
+            <p>Street Fashion</p>
+            <h3>The Vision 2026</h3>
+        </div>
+    </div>
 </div>
 
-<center><a href="index.html" class="back-link">العودة للرئيسية</a></center>
+<div class="cta-section">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 20px;">هل تبحث عن رؤية فنية لمشروعك؟</h2>
+    <a href="https://wa.me/213663190202" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> ابدأ مشروعك الآن
+    </a>
+    <br>
+    <a href="index.html" class="back-link">العودة للرئيسية</a>
+</div>
 
-<footer style="padding: 40px; text-align: center; opacity: 0.3; font-size: 9px;">© 2026 ZINEX STUDIO | BY AMINE OV</footer>
+<footer style="padding: 60px 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+    <p style="opacity: 0.4; font-size: 10px; letter-spacing: 2px;">© 2026 ZINEX STUDIO | BY AMINE OV</p>
+</footer>
 
 </body>
 </html>
