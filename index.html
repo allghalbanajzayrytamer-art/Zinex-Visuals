@@ -61,19 +61,35 @@
     <div id="youtube-portfolio" class="video-grid"><p>جاري التحميل...</p></div>
 </section>
 <footer>© 2026 ZINEX STUDIO</footer>
+
 <script>
     const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs';
-    const CHANNEL_ID = 'UCvN66_Tlsm2vY_R_1M-W96w'; // القناة الجديدة (Cities in 4K)
- {
+    const CHANNEL_ID = 'UCvN66_Tlsm2vY_R_1M-W96w';
+
+    async function fetchVideos() {
         try {
             const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6&type=video`);
             const data = await res.json();
             const container = document.getElementById('youtube-portfolio');
-            container.innerHTML = '';
-            data.items.forEach(item => {
-                container.innerHTML += `<div class="video-card"><a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank"><img src="${item.snippet.thumbnails.high.url}"></a><h3 style="padding:15px; font-size:12px;">${item.snippet.title}</h3></div>`;
-            });
-        } catch (e) { console.error(e); }
+            
+            if (data.items) {
+                container.innerHTML = '';
+                data.items.forEach(item => {
+                    container.innerHTML += `
+                        <div class="video-card">
+                            <a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank">
+                                <img src="${item.snippet.thumbnails.high.url}">
+                            </a>
+                            <h3 style="padding:15px; font-size:12px;">${item.snippet.title}</h3>
+                        </div>`;
+                });
+            } else {
+                container.innerHTML = '<p>لا توجد فيديوهات حالياً.</p>';
+            }
+        } catch (e) { 
+            console.error(e); 
+            document.getElementById('youtube-portfolio').innerHTML = '<p>خطأ في تحميل الفيديوهات.</p>';
+        }
     }
     fetchVideos();
 </script>
