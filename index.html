@@ -3,27 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>ZINEX | Amine OV Portfolio</title>
-    <meta name="description" content="ZINEX | Portfolio - المصمم والمطور الإبداعي أمين">
-
-    <meta property="og:title" content="ZINEX | Amine OV Portfolio">
-    <meta property="og:description" content="تجسيد الفخامة في كل بكسل. اكتشف الرؤية الإبداعية لأمين.">
-    <meta property="og:image" content="https://amineov.github.io/Zinex-Visuals/amine-profile.jpg">
-    <meta property="og:url" content="https://amineov.github.io/Zinex-Visuals/">
-    <meta property="og:type" content="website">
-
-    <link rel="icon" type="image/jpeg" href="amine-profile.jpg">
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* ... (نفس كود التنسيق CSS السابق) ... */
         :root {
             --gold: #d4af37;
             --dark: #050505;
             --gray: #a8a8a8;
             --fb-blue: #1877F2;
+            --wa-green: #25D366;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -40,19 +30,24 @@
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 20px 6%;
+            padding: 15px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
 
-        .logo { color: var(--gold); font-weight: bold; letter-spacing: 4px; font-size: 1.2rem; text-transform: uppercase; }
+        /* اللوغو كصورة */
+        .logo-img {
+            height: 40px; /* يمكنك تعديل الحجم هنا */
+            width: auto;
+            display: block;
+        }
 
-        /* HERO SECTION WITH VIDEO */
+        /* HERO SECTION */
         .hero {
             position: relative;
             height: 100vh;
@@ -65,10 +60,8 @@
 
         .back-video {
             position: absolute;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
+            right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
             z-index: -1;
             object-fit: cover;
             filter: brightness(0.3);
@@ -78,8 +71,37 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(50px, 10vw, 100px);
             letter-spacing: 10px;
-            animation: fadeUp 1.5s ease-out;
+            margin-bottom: 20px;
         }
+
+        /* BUTTONS */
+        .cta-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .premium-btn {
+            padding: 12px 25px;
+            text-decoration: none;
+            color: white;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 4px;
+            transition: 0.4s;
+        }
+
+        .btn-vision { border-color: var(--gold); color: var(--gold); }
+        .btn-vision:hover { background: var(--gold); color: black; }
+
+        .btn-fb { border-color: var(--fb-blue); color: var(--fb-blue); }
+        .btn-wa { border-color: var(--wa-green); color: var(--wa-green); }
 
         /* ABOUT SECTION */
         .about {
@@ -91,116 +113,62 @@
             background: #080808;
         }
 
-        .about-image { flex: 1; min-width: 300px; }
+        .about-image { flex: 1; min-width: 300px; text-align: center; }
         .about-image img {
             width: 100%;
-            border-radius: 4px;
+            max-width: 380px;
+            border-radius: 8px;
             border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            filter: grayscale(20%);
+            transition: 0.5s;
         }
+        .about-image img:hover { filter: grayscale(0%); border-color: var(--gold); }
 
         .about-text { flex: 1.2; min-width: 300px; }
-        
-        /* الأزرار المحدثة (التحفة) */
-        .cta-container {
-            display: flex;
-            gap: 15px;
-            margin-top: 45px;
-            flex-wrap: wrap;
+
+        /* PORTFOLIO GRID */
+        .portfolio { padding: 100px 10%; background: var(--dark); text-align: center; }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
         }
 
-        .premium-btn {
-            position: relative;
-            padding: 14px 28px;
-            text-decoration: none;
-            color: white;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
+        .video-card {
+            background: #0f0f0f;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
             overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border-radius: 4px;
+            transition: 0.4s;
         }
+        .video-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        .video-card img { width: 100%; display: block; }
+        .video-card h3 { padding: 15px; font-size: 13px; color: var(--gray); text-align: right; }
 
-        /* زر الرؤية (الذهبي المميز) */
-        .btn-vision {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.08);
-            color: var(--gold);
-            flex: 1 1 100%; /* اجعل زر الرؤية عريضاً في البداية */
-            margin-bottom: 5px;
-            font-size: 13px;
-        }
-
-        .btn-vision:hover {
-            background: var(--gold);
-            color: black;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-            transform: translateY(-5px);
-        }
-
-        /* زر الفيسبوك */
-        .btn-fb {
-            border-color: #1877F2;
-            color: #1877F2;
-            flex: 1;
-        }
-
-        .btn-fb:hover {
-            background: #1877F2;
-            color: white;
-            box-shadow: 0 0 20px rgba(24, 119, 242, 0.3);
-            transform: translateY(-5px);
-        }
-
-        /* زر الواتساب */
-        .btn-wa {
-            border-color: #25D366;
-            color: #25D366;
-            flex: 1;
-        }
-
-        .btn-wa:hover {
-            background: #25D366;
-            color: white;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
-            transform: translateY(-5px);
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .about { flex-direction: column; text-align: center; }
-            .cta-container { justify-content: center; }
-        }
+        footer { padding: 50px; text-align: center; border-top: 1px solid #111; opacity: 0.4; font-size: 10px; }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">ZINEX</div>
-    <div style="font-weight: 300; font-size: 11px; letter-spacing: 2px;">AMINE OV</div>
+    <a href="index.html">
+        <img src="ZINEX LOGO.png" alt="ZINEX Logo" class="logo-img">
+    </a>
+    <div style="font-weight: 300; font-size: 10px; letter-spacing: 2px; color: var(--gold);">AMINE OV</div>
 </nav>
 
 <section class="hero">
     <video autoplay loop muted playsinline class="back-video">
         <source src="https://assets.mixkit.co/videos/preview/mixkit-star-wars-style-text-scrolling-in-deep-space-34135-large.mp4" type="video/mp4">
     </video>
-    
     <div class="hero-content">
         <p style="letter-spacing: 5px; opacity: 0.7;">CREATIVE DIGITAL ARCHITECT</p>
         <h1>ZINEX</h1>
-        <a href="#about" class="premium-btn btn-vision" style="flex: none; width: auto; padding: 15px 40px;">اكتشف القصة</a>
+        <div class="cta-container">
+            <a href="#portfolio" class="premium-btn btn-vision">استكشف الرؤية</a>
+            <a href="gallery.html" class="premium-btn">المعرض الكامل</a>
+        </div>
     </div>
 </section>
 
@@ -208,27 +176,58 @@
     <div class="about-image">
         <img src="amine-profile.jpg" alt="Amine OV Portfolio">
     </div>
-
     <div class="about-text">
-        <span style="color: var(--gold); letter-spacing: 4px; font-weight: 300; font-size: 12px;">EST. 2026</span>
-        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(35px, 5vw, 55px); line-height: 1.2; margin: 20px 0;">
-            تجسيد الفخامة <br> في كل بكسل.
-        </h2>
-        <p style="color: var(--gray); font-size: 17px; max-width: 500px; font-weight: 300; line-height: 1.8;">
-            أنا أمين، متخصص في صياغة التجارب الرقمية الفريدة. هنا، ندمج الفن السينمائي مع قوة التكنولوجيا لنخلق بصمة لا تُنسى.
-        </p>
+        <span style="color: var(--gold); letter-spacing: 4px; font-size: 12px;">ABOUT ME</span>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 45px; margin: 20px 0;">تجسيد الفخامة <br>في كل تفصيل.</h2>
+        <p style="color: var(--gray); font-weight: 300; max-width: 500px;">أنا أمين، متخصص في صياغة التجارب الرقمية الفريدة. أدمج الفن السينمائي مع قوة البرمجة لنخلق بصمة لا تُنسى في عالم الويب.</p>
         
-        <div class="cta-container">
-            <a href="gallery.html" class="premium-btn btn-vision">استكشف الرؤية</a>
-            <a href="https://www.facebook.com/share/1B8VoM4pHn/" class="premium-btn btn-fb" target="_blank">Facebook</a>
-            <a href="https://wa.me/213663190202" class="premium-btn btn-wa" target="_blank">WhatsApp</a>
+        <div class="cta-container" style="justify-content: flex-start;">
+            <a href="https://www.facebook.com/share/1B8VoM4pHn/" target="_blank" class="premium-btn btn-fb">Facebook</a>
+            <a href="https://wa.me/213663190202" target="_blank" class="premium-btn btn-wa">WhatsApp</a>
         </div>
     </div>
 </section>
 
-<footer style="padding: 50px; text-align: center; border-top: 1px solid #111;">
-    <p style="font-size: 10px; opacity: 0.4; letter-spacing: 2px;">© 2026 ZINEX STUDIO | BEYOND VISUALS</p>
-</footer>
+<section id="portfolio" class="portfolio">
+    <span style="color: var(--gold); letter-spacing: 4px; font-size: 11px;">LATEST WORK</span>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 35px; margin-top: 10px;">أحدث الإبداعات</h2>
+    <div id="youtube-portfolio" class="video-grid">
+        <p>جاري مزامنة الفيديوهات...</p>
+    </div>
+</section>
+
+<footer>© 2026 ZINEX STUDIO | BEYOND VISUALS</footer>
+
+<script>
+    const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs';
+    const CHANNEL_ID = 'UCY7vL5kIDK_n0v0e4v-G-0Q';
+
+    async function fetchVideos() {
+        try {
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6&type=video`);
+            const data = await response.json();
+            const container = document.getElementById('youtube-portfolio');
+            container.innerHTML = '';
+
+            if (data.items) {
+                data.items.forEach(item => {
+                    const card = `
+                        <div class="video-card">
+                            <a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank" style="text-decoration:none;">
+                                <img src="${item.snippet.thumbnails.high.url}" alt="Video">
+                                <h3>${item.snippet.title}</h3>
+                            </a>
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
+    fetchVideos();
+</script>
 
 </body>
 </html>
