@@ -31,7 +31,7 @@
 </head>
 <body>
 <nav>
-    <a href="index.html"><img src="logo.png" alt="ZINEX" class="logo-img"></a>
+    <a href="./index.html"><img src="logo.png" alt="ZINEX" class="logo-img"></a>
     <div style="font-weight: 300; font-size: 10px; letter-spacing: 2px; color: var(--gold);">AMINE OV</div>
 </nav>
 <section class="hero">
@@ -41,7 +41,7 @@
         <h1>ZINEX</h1>
         <div class="cta-container">
             <a href="#portfolio" class="premium-btn btn-vision">استكشف الرؤية</a>
-            <a href="gallery.html" class="premium-btn">المعرض الكامل</a>
+            <a href="./gallery.html" class="premium-btn">المعرض الكامل</a>
         </div>
     </div>
 </section>
@@ -71,7 +71,6 @@
             const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6&type=video`);
             const data = await res.json();
             const container = document.getElementById('youtube-portfolio');
-            
             if (data.items) {
                 container.innerHTML = '';
                 data.items.forEach(item => {
@@ -83,13 +82,8 @@
                             <h3 style="padding:15px; font-size:12px;">${item.snippet.title}</h3>
                         </div>`;
                 });
-            } else {
-                container.innerHTML = '<p>لا توجد فيديوهات حالياً.</p>';
             }
-        } catch (e) { 
-            console.error(e); 
-            document.getElementById('youtube-portfolio').innerHTML = '<p>خطأ في تحميل الفيديوهات.</p>';
-        }
+        } catch (e) { console.error(e); }
     }
     fetchVideos();
 </script>
