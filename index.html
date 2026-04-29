@@ -63,8 +63,8 @@
 <footer>© 2026 ZINEX STUDIO</footer>
 <script>
     const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs';
-    const CHANNEL_ID = 'UCY7vL5kIDK_n0v0e4v-G-0Q';
-    async function fetchVideos() {
+    const CHANNEL_ID = 'UCvN66_Tlsm2vY_R_1M-W96w'; // القناة الجديدة (Cities in 4K)
+ {
         try {
             const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6&type=video`);
             const data = await res.json();
