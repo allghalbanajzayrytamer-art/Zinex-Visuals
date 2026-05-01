@@ -4,26 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZINEX | Artistic Gallery</title>
+    
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/allghalbanajzayrytamer-art/Zinex-Visuals/main/logo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --black: #050505; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--black); color: white; margin: 0; }
-        nav { padding: 20px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.1); }
-        
+        :root { --gold: #d4af37; --black: #050505; --gray: #a8a8a8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--black); color: white; line-height: 1.6; }
+        nav { padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.1); background: rgba(5,5,5,0.9); }
+        .logo-img { height: 35px; }
+
         .container { padding: 60px 8%; text-align: center; }
         
         /* الكلمة الجديدة الفخمة */
         .section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 45px); color: var(--gold); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 3px; }
         .sub-title { font-size: 11px; color: #a8a8a8; margin-bottom: 50px; letter-spacing: 6px; text-transform: uppercase; opacity: 0.6; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
-        .grid-item { position: relative; height: 450px; overflow: hidden; border-radius: 4px; cursor: pointer; border: 1px solid rgba(255,255,255,0.03); }
-        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.2s cubic-bezier(0.4, 0, 0.2, 1); filter: brightness(0.6); }
-        .grid-item:hover img { transform: scale(1.1); filter: brightness(1); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-bottom: 60px; }
+        .grid-item { position: relative; height: 450px; overflow: hidden; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03); cursor: pointer; transition: 0.5s; }
+        .grid-item:hover { transform: translateY(-10px); }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s cubic-bezier(0.4, 0, 0.2, 1); filter: brightness(0.6); }
+        .grid-item:hover img { transform: scale(1.08); filter: brightness(1); }
         
         .overlay { position: absolute; bottom: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); text-align: right; opacity: 0; transition: 0.5s; }
         .grid-item:hover .overlay { opacity: 1; }
-        .overlay h3 { color: var(--gold); font-size: 14px; margin-bottom: 5px; }
+        .overlay h3 { color: var(--gold); font-size: 14px; margin-bottom: 5px; font-weight: 700; }
+        .overlay p { font-size: 10px; color: white; opacity: 0.7; }
 
         footer { padding: 50px; text-align: center; opacity: 0.2; font-size: 9px; letter-spacing: 2px; }
     </style>
@@ -31,8 +38,8 @@
 <body>
 
 <nav>
-    <a href="./index.html" style="color:var(--gold); text-decoration:none; font-size:11px; font-weight:700;">BACK TO HOME</a>
-    <img src="logo.png" alt="ZINEX" style="height:30px;">
+    <a href="./index.html" style="color:var(--gold); text-decoration:none; font-size:11px; font-weight:700;">العودة للرئيسية</a>
+    <img src="logo.png" alt="ZINEX" class="logo-img">
 </nav>
 
 <div class="container">
@@ -42,36 +49,56 @@
     <div class="grid" id="main-gallery">
         <div class="grid-item">
             <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80" loading="lazy">
-            <div class="overlay"><h3>Natural Majesty</h3><p style="font-size:10px;">4K LANDSCAPE PHOTOGRAPHY</p></div>
+            <div class="overlay"><h3>THE PEAK</h3><p>ULTRA HD LANDSCAPE</p></div>
         </div>
+        <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80" loading="lazy">
+            <div class="overlay"><h3>VERDANT WONDERS</h3><p>ULTRA HD LANDSCAPE</p></div>
+        </div>
+        <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80" loading="lazy">
+            <div class="overlay"><h3>SILENT FOREST</h3><p>ULTRA HD LANDSCAPE</p></div>
+        </div>
+        <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" loading="lazy">
+            <div class="overlay"><h3>THE STREAM</h3><p>ULTRA HD LANDSCAPE</p></div>
+        </div>
+        <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1200&q=80" loading="lazy">
+            <div class="overlay"><h3>OCEAN GIANTS</h3><p>ULTRA HD LANDSCAPE</p></div>
+        </div>
+        
         </div>
 </div>
 
-<footer>© 2026 ZINEX STUDIO | CRAFTED BY AMINE OV</footer>
+<footer>© 2026 ZINEX STUDIO | BY AMINE OV</footer>
 
 <script>
-    // كود جلب الفيديوهات يبقى نفسه لضمان استمرارية العمل
-    const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs';
-    const CHANNEL_ID = 'UCmP8f6_Y6XoDozv8vS_2X_w';
+    const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs'; // مفتاح API نتاعك
+    const CHANNEL_ID = 'UCmP8f6_Y6XoDozv8vS_2X_w'; // Vemix السينمائية
 
     async function loadGallery() {
         const container = document.getElementById('main-gallery');
         try {
             const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20&type=video`);
             const data = await res.json();
-            data.items.forEach(v => {
-                container.innerHTML += `
-                <div class="grid-item" onclick="window.open('https://www.youtube.com/watch?v=${v.id.videoId}')">
-                    <img src="${v.snippet.thumbnails.high.url}" loading="lazy">
-                    <div class="overlay">
-                        <h3>${v.snippet.title}</h3>
-                        <p style="font-size:10px;">CINEMATIC PRODUCTION</p>
-                    </div>
-                </div>`;
-            });
-        } catch (e) { console.error("Error"); }
+            if (data.items) {
+                data.items.forEach(v => {
+                    if (v.id.videoId) {
+                        container.innerHTML += `
+                        <div class="grid-item" onclick="window.open('https://www.youtube.com/watch?v=${v.id.videoId}')">
+                            <img src="${v.snippet.thumbnails.high.url}" loading="lazy">
+                            <div class="overlay">
+                                <h3>${v.snippet.title}</h3>
+                                <p>WATCH IN 4K CINEMATIC</p>
+                            </div>
+                        </div>`;
+                    }
+                });
+            }
+        } catch (e) { console.error("Error loading videos"); }
     }
-    loadGallery();
+    document.addEventListener('DOMContentLoaded', loadGallery);
 </script>
 </body>
 </html>
