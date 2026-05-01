@@ -3,25 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>ZINEX | Amine OV Portfolio</title>
-    <meta name="description" content="تجسيد الفخامة في كل بكسل.. اكتشف الرؤية الإبداعية لأمين في عالم البرمجة والتصوير السينمائي.">
-
+    
     <meta property="og:title" content="ZINEX | Amine OV Portfolio">
     <meta property="og:description" content="تجسيد الفخامة في كل بكسل.. دمج الفن السينمائي مع البرمجة.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://allghalbanajzayrytamer-art.github.io/">
     <meta property="og:image" content="https://allghalbanajzayrytamer-art.github.io/amine-profile.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZINEX | Amine OV Portfolio">
-    <meta name="twitter:description" content="تجسيد الفخامة في كل بكسل.. دمج الفن السينمائي مع البرمجة.">
-    <meta name="twitter:image" content="https://allghalbanajzayrytamer-art.github.io/amine-profile.jpg">
+    <meta property="og:url" content="https://allghalbanajzayrytamer-art.github.io/">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    
     <style>
         :root { --gold: #d4af37; --dark: #050505; --gray: #a8a8a8; --wa: #25D366; --fb: #1877F2; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -39,7 +28,7 @@
         .about-image img { width: 100%; max-width: 380px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.2); filter: grayscale(20%); transition: 0.5s; }
         .about-image img:hover { filter: grayscale(0%); border-color: var(--gold); }
         .portfolio { padding: 100px 10%; text-align: center; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; min-height: 200px; }
         .video-card { background: #0f0f0f; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 8px; overflow: hidden; transition: 0.4s; }
         .video-card:hover { transform: translateY(-10px); border-color: var(--gold); }
         .video-card img { width: 100%; display: block; }
@@ -51,8 +40,11 @@
     <a href="./index.html"><img src="logo.png" alt="ZINEX" class="logo-img"></a>
     <div style="font-weight: 300; font-size: 10px; letter-spacing: 2px; color: var(--gold);">AMINE OV</div>
 </nav>
+
 <section class="hero">
-    <video autoplay loop muted playsinline class="back-video"><source src="https://assets.mixkit.co/videos/preview/mixkit-star-wars-style-text-scrolling-in-deep-space-34135-large.mp4" type="video/mp4"></video>
+    <video autoplay loop muted playsinline class="back-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-star-wars-style-text-scrolling-in-deep-space-34135-large.mp4" type="video/mp4">
+    </video>
     <div class="hero-content">
         <p style="letter-spacing: 5px; opacity: 0.7;">CREATIVE DIGITAL ARCHITECT</p>
         <h1>ZINEX</h1>
@@ -62,47 +54,56 @@
         </div>
     </div>
 </section>
-<section id="about" class="about">
-    <div class="about-image"><img src="amine-profile.jpg" alt="Amine OV"></div>
-    <div class="about-text">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 45px; margin-bottom: 20px;">تجسيد الفخامة.</h2>
-        <p style="color: var(--gray); margin-bottom: 30px;">أنا أمين، متخصص في صياغة التجارب الرقمية الفريدة ودمج الفن السينمائي مع البرمجة.</p>
-        <div class="cta-container" style="justify-content: flex-start;">
-            <a href="https://wa.me/213663190202" target="_blank" class="premium-btn" style="border-color: var(--wa); color: var(--wa);">WhatsApp</a>
-            <a href="https://www.facebook.com/share/1B8VoM4pHn/" target="_blank" class="premium-btn" style="border-color: var(--fb); color: var(--fb);">Facebook</a>
-        </div>
-    </div>
-</section>
+
 <section id="portfolio" class="portfolio">
     <h2 style="font-family: 'Playfair Display', serif; font-size: 35px;">أحدث الإبداعات</h2>
-    <div id="youtube-portfolio" class="video-grid"><p>جاري التحميل...</p></div>
+    <div id="youtube-portfolio" class="video-grid">
+        <p>جاري سحب المحتوى من اليوتيوب...</p>
+    </div>
 </section>
+
 <footer>© 2026 ZINEX STUDIO</footer>
 
 <script>
-    const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs'; // تأكد من حماية مفتاحك لاحقاً
+    // تأكد أن هذا المفتاح مفعل في Google Cloud Console
+    const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs'; 
     const CHANNEL_ID = 'UCvN66_Tlsm2vY_R_1M-W96w';
 
     async function fetchVideos() {
+        const container = document.getElementById('youtube-portfolio');
         try {
-            const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6&type=video`);
+            const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6&type=video`;
+            const res = await fetch(url);
             const data = await res.json();
-            const container = document.getElementById('youtube-portfolio');
-            if (data.items) {
+
+            if (data.error) {
+                console.error("YouTube Error:", data.error.message);
+                container.innerHTML = `<p style="color:var(--gold); font-size:12px;">نعتذر، هناك مشكلة في الاتصال باليوتيوب حالياً.</p>`;
+                return;
+            }
+
+            if (data.items && data.items.length > 0) {
                 container.innerHTML = '';
                 data.items.forEach(item => {
                     container.innerHTML += `
                         <div class="video-card">
                             <a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank">
-                                <img src="${item.snippet.thumbnails.high.url}">
+                                <img src="${item.snippet.thumbnails.high.url}" alt="Video Thumbnail">
                             </a>
-                            <h3 style="padding:15px; font-size:12px;">${item.snippet.title}</h3>
+                            <h3 style="padding:15px; font-size:11px; font-weight:400; color:white;">${item.snippet.title}</h3>
                         </div>`;
                 });
+            } else {
+                container.innerHTML = '<p>لا توجد فيديوهات متاحة حالياً.</p>';
             }
-        } catch (e) { console.error(e); }
+        } catch (e) {
+            console.error("Fetch Error:", e);
+            container.innerHTML = '<p>فشل تحميل الفيديوهات. يرجى المحاولة لاحقاً.</p>';
+        }
     }
-    fetchVideos();
+
+    // تشغيل الدالة عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', fetchVideos);
 </script>
 </body>
 </html>
