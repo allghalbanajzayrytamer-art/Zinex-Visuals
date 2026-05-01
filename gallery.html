@@ -13,40 +13,41 @@
         .logo-img { height: 40px; width: auto; }
         .gallery-header { padding: 80px 10% 40px; text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px 8%; }
-        .grid-item { position: relative; overflow: hidden; background: #111; height: 450px; cursor: pointer; border: 1px solid rgba(255,255,255,0.05); }
+        .grid-item { position: relative; overflow: hidden; background: #111; height: 450px; cursor: pointer; border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; }
         .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; filter: brightness(0.6); }
         .grid-item:hover img { transform: scale(1.1); filter: brightness(1); }
         .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; opacity: 0; transition: 0.5s; }
         .grid-item:hover .overlay { opacity: 1; }
-        .cta-section { padding: 80px 10%; text-align: center; background: #080808; }
-        .btn-wa { border: 1px solid #25D366; color: #25D366; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-size: 11px; text-transform: uppercase; }
+        .cta-section { padding: 80px 10%; text-align: center; background: #080808; border-top: 1px solid rgba(212, 175, 55, 0.1); }
+        .btn-wa { border: 1px solid #25D366; color: #25D366; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
         footer { padding: 40px; text-align: center; opacity: 0.3; font-size: 9px; }
     </style>
 </head>
 <body>
 <nav>
     <a href="./index.html"><img src="logo.png" alt="ZINEX" class="logo-img"></a>
-    <a href="./index.html" style="color:var(--gold); text-decoration:none; font-size:10px; letter-spacing:2px;">HOME</a>
+    <a href="./index.html" style="color:var(--gold); text-decoration:none; font-size:10px; letter-spacing:2px; font-weight:700;">HOME</a>
 </nav>
 
 <div class="gallery-header">
-    <h1 style="font-family: 'Playfair Display', serif; font-size: 40px;">الأرشيف الإبداعي</h1>
-    <p style="color: var(--gray); margin-top: 10px;">كل الإنتاجات السينمائية في مكان واحد</p>
+    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 50px);">الأرشيف الإبداعي</h1>
+    <p style="color: var(--gray); font-size: 13px; margin-top: 10px;">استكشف جميع الفيديوهات والمشاريع السينمائية</p>
 </div>
 
 <div id="youtube-gallery" class="grid">
-    <p style="grid-column: 1/-1; text-align: center; opacity: 0.5;">تحميل الأرشيف...</p>
+    <p style="grid-column: 1/-1; text-align: center; opacity: 0.5;">جاري تحميل الأرشيف السينمائي...</p>
 </div>
 
 <div class="cta-section">
-    <a href="https://wa.me/213663190202" target="_blank" class="btn-wa">تواصل لطلب عمل خاص</a>
+    <h2 style="margin-bottom: 25px; font-family: 'Playfair Display', serif;">ابدأ مشروعك السينمائي الآن</h2>
+    <a href="https://wa.me/213663190202" target="_blank" class="btn-wa">تواصل عبر WhatsApp</a>
 </div>
 
 <footer>© 2026 ZINEX STUDIO | BY AMINE OV</footer>
 
 <script>
     const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs';
-    const CHANNEL_ID = 'UCmP8f6_Y6XoDozv8vS_2X_w'; // قناة Vemix السينمائية
+    const CHANNEL_ID = 'UCmP8f6_Y6XoDozv8vS_2X_w'; 
 
     async function loadGallery() {
         const container = document.getElementById('youtube-gallery');
@@ -60,12 +61,13 @@
                         <div class="grid-item" onclick="window.open('https://www.youtube.com/watch?v=${item.id.videoId}', '_blank')">
                             <img src="${item.snippet.thumbnails.high.url}">
                             <div class="overlay">
-                                <h3 style="color:var(--gold); font-size:13px; text-align:right;">${item.snippet.title}</h3>
+                                <h3 style="color:var(--gold); font-size:13px; margin-bottom:5px; text-align:right;">${item.snippet.title}</h3>
+                                <p style="font-size:9px; color:white; opacity:0.7; text-align:right;">WATCH IN 4K</p>
                             </div>
                         </div>`;
                 });
             }
-        } catch (e) { container.innerHTML = '<p>تعذر تحميل المعرض.</p>'; }
+        } catch (e) { container.innerHTML = '<p>تعذر تحميل المعرض حالياً.</p>'; }
     }
     window.onload = loadGallery;
 </script>
