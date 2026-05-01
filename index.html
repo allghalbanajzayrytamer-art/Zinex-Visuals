@@ -3,67 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZINEX | Amine OV Portfolio</title>
+    <title>ZINEX | Premium Visual Artist</title>
     
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/allghalbanajzayrytamer-art/Zinex-Visuals/main/logo.png">
 
+    <meta property="og:image" content="https://raw.githubusercontent.com/allghalbanajzayrytamer-art/Zinex-Visuals/main/amine-profile.jpg">
+    <meta property="og:title" content="ZINEX | Amine OV Portfolio">
+    <meta property="og:description" content="Visionary Visuals & Digital Code. استكشف عالم أمين OV.">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --dark: #050505; --gray: #a8a8a8; }
+        :root { --gold: #d4af37; --dark: #050505; --neon-pink: #ff1493; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: white; line-height: 1.6; }
         
-        /* تصميم الـ Nav الجديد بدون الشريط الأصفر */
-        nav { position: fixed; top: 0; width: 100%; padding: 20px 6%; display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-        .logo-img { height: 35px; }
-
-        /* نقطة الحالة "متاح للعمل" بطريقة راقية */
-        .status-badge { display: flex; align-items: center; gap: 8px; font-size: 9px; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; font-weight: 700; }
+        /* ----------------------------------------------------------- */
+        /* تصميم الـ Navigation Bar السينمائي */
+        /* ----------------------------------------------------------- */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 6%; display: flex; justify-content: space-between; align-items: center; background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(20px); z-index: 1001; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        .nav-left { display: flex; align-items: center; gap: 15px; }
+        .logo-img { height: 35px; /* حجم اللوغو الذهبي */ }
+        .by-text { font-size: 8px; color: #a8a8a8; letter-spacing: 2px; text-transform: uppercase; }
+        
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .status-badge { display: flex; align-items: center; gap: 8px; font-size: 9px; letter-spacing: 2px; color: #a8a8a8; text-transform: uppercase; font-weight: 700; }
         .dot { width: 6px; height: 6px; background: #25D366; border-radius: 50%; box-shadow: 0 0 10px #25D366; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+        .btn-gallery { color: var(--gold); text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 1px; transition: 0.3s; }
+        .btn-gallery:hover { opacity: 0.7; }
 
-        .hero { height: 80vh; display: flex; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #111 0%, #050505 100%); }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(50px, 10vw, 100px); letter-spacing: 12px; }
-
-        .about-section { padding: 100px 10%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; background: #080808; }
-        .about-img { width: 320px; height: 420px; object-fit: cover; border: 1px solid var(--gold); border-radius: 4px; }
+        /* ----------------------------------------------------------- */
+        /* تصميم الـ Hero Section الجديد (مطابق للصورة) */
+        /* ----------------------------------------------------------- */
+        .hero { 
+            height: 100vh; /* يملأ الشاشة بالكامل */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            /* خلفية السينما من الصورة */
+            background-image: url('https://raw.githubusercontent.com/allghalbanajzayrytamer-art/Zinex-Visuals/main/cine-neon-bg.jpg'); /* استبدل بهذا الرابط */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        /* تظليل الخلفية لتركيز النظر على النص */
+        .hero::before { 
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(5, 5, 5, 0.8) 20%, rgba(5, 5, 5, 0.9));
+        }
         
-        .services { padding: 100px 10%; background: #050505; text-align: center; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .service-card { background: #0a0a0a; padding: 40px; border: 1px solid rgba(212, 175, 55, 0.1); transition: 0.5s; }
-        .service-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-content img { height: 100px; /* حجم اللوغو العائم */ margin-bottom: 30px; }
+        .slogan { 
+            font-size: 12px; 
+            color: #a8a8a8; 
+            letter-spacing: 7px; 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            display: block;
+        }
+        .hero-title { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(50px, 12vw, 110px); 
+            color: white; 
+            margin-bottom: 40px; 
+            text-transform: uppercase;
+        }
+        .btn-explore { 
+            border: 2px solid white; 
+            color: white; 
+            padding: 15px 40px; 
+            text-decoration: none; 
+            font-size: 11px; 
+            font-weight: 700; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            border-radius: 0; /* حافة مستقيمة */
+            transition: 0.3s; 
+        }
+        .btn-explore:hover { background: white; color: var(--dark); }
 
-        .portfolio { padding: 100px 8%; }
+        /* باقي الأقسام متناسقة مع الستايل */
+        .about-section { padding: 120px 10%; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; background: #080808; }
+        .about-img { width: 320px; height: 420px; object-fit: cover; border: 1px solid var(--gold); border-radius: 4px; filter: grayscale(30%); }
+        .about-content h2 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 20px; }
+        
+        .portfolio { padding: 120px 8%; background: var(--dark); }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .video-card { background: #111; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; cursor: pointer; }
-        .video-card:hover { border-color: var(--gold); }
+        .video-card:hover { border-color: var(--gold); transform: translateY(-5px); }
 
-        #backToTop { position: fixed; bottom: 30px; left: 30px; background: var(--gold); color: black; border: none; padding: 12px; border-radius: 4px; cursor: pointer; display: none; z-index: 1000; font-weight: bold; }
-
-        footer { padding: 60px; text-align: center; opacity: 0.2; font-size: 9px; letter-spacing: 2px; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer { padding: 60px; text-align: center; opacity: 0.2; font-size: 9px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
 <nav>
-    <img src="logo.png" alt="ZINEX" class="logo-img">
-    <div class="status-badge">
-        <div class="dot"></div> AVAILABLE FOR PROJECTS
+    <div class="nav-left">
+        <img src="logo.png" alt="ZINEX" class="logo-img">
+        <span class="by-text">BY AMINE OV</span>
     </div>
-    <a href="./gallery.html" style="color:var(--gold); text-decoration:none; font-size:11px; font-weight:700; letter-spacing:1px;">GALLERY</a>
+    <div class="nav-right">
+        <div class="status-badge">
+            <div class="dot"></div> AVAILABLE FOR PROJECTS
+        </div>
+        <a href="./gallery.html" class="btn-gallery">GALLERY</a>
+    </div>
 </nav>
 
 <section class="hero">
-    <div>
-        <p style="letter-spacing: 8px; opacity: 0.4; font-size: 10px; margin-bottom: 10px;">PREMIUM VISUAL ARTIST</p>
-        <h1>ZINEX</h1>
+    <div class="hero-content">
+        <img src="logo.png" alt="ZINEX LOGO">
+        <span class="slogan">Visionary Visuals & Digital Code</span>
+        <h1 class="hero-title">ZINEX</h1>
+        <a href="#about" class="btn-explore">Explore Expertise</a>
     </div>
 </section>
 
-<section class="about-section">
+<section id="about" class="about-section">
     <img src="amine-profile.jpg" alt="Amine OV" class="about-img" loading="lazy">
     <div class="about-content">
-        <h2 style="color:var(--gold); font-family:'Playfair Display'; font-size:35px; margin-bottom:20px;">About Me | Amine OV</h2>
+        <h2>About Me | Amine OV</h2>
         <p>أنا أمين، متخصص في دمج الإبداع البصري مع الحلول التقنية المبتكرة. استكشف رحلتي في عالم السينما والبرمجة.</p>
         <div style="margin-top:30px;">
             <a href="https://wa.me/213663190202" target="_blank" style="color:#25D366; text-decoration:none; font-weight:700; margin-left:20px;">WHATSAPP</a>
@@ -72,12 +135,12 @@
     </div>
 </section>
 
-<section class="services">
+<section class="services" style="padding: 100px 10%; background: #050505; text-align: center;">
     <h2 style="color:var(--gold); font-family:'Playfair Display'; margin-bottom:50px;">OUR SERVICES</h2>
-    <div class="services-grid">
-        <div class="service-card"><h3>Video Editing</h3><p>قصص سينمائية احترافية.</p></div>
-        <div class="service-card"><h3>Cinematography</h3><p>تصوير برؤية فنية فريدة.</p></div>
-        <div class="service-card"><h3>Web Solutions</h3><p>تطوير تجارب رقمية فاخرة.</p></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div style="background: #0a0a0a; padding: 40px; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 4px;"><h3>Video Editing</h3><p>قصص سينمائية احترافية.</p></div>
+        <div style="background: #0a0a0a; padding: 40px; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 4px;"><h3>Cinematography</h3><p>تصوير برؤية فنية فريدة.</p></div>
+        <div style="background: #0a0a0a; padding: 40px; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 4px;"><h3>Web Solutions</h3><p>تطوير تجارب رقمية فاخرة.</p></div>
     </div>
 </section>
 
@@ -85,8 +148,6 @@
     <h2 style="text-align:center; font-family:'Playfair Display'; margin-bottom:50px;">LATEST CREATIONS</h2>
     <div id="youtube-list" class="video-grid"></div>
 </section>
-
-<button id="backToTop" onclick="scrollToTop()">↑</button>
 
 <footer>© 2026 ZINEX STUDIO | BY AMINE OV</footer>
 
@@ -111,12 +172,6 @@
             }
         } catch (e) { console.error("Error"); }
     }
-
-    window.onscroll = function() {
-        const btn = document.getElementById("backToTop");
-        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { btn.style.display = "block"; } else { btn.style.display = "none"; }
-    };
-    function scrollToTop() { window.scrollTo({top: 0, behavior: 'smooth'}); }
     document.addEventListener('DOMContentLoaded', fetchVideos);
 </script>
 </body>
