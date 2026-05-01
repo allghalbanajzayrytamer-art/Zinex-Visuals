@@ -8,7 +8,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://allghalbanajzayrytamer-art.github.io/Zinex-Visuals/">
     <meta property="og:title" content="ZINEX | Amine OV Portfolio">
-    <meta property="og:description" content="تجسيد الفخامة في كل بكسل.. دمج الفن السينمائي مع البرمجة. استكشف أعمالي درك.">
+    <meta property="og:description" content="تجسيد الفخامة في كل بكسل.. دمج الفن السينمائي مع البرمجة.">
     <meta property="og:image" content="https://allghalbanajzayrytamer-art.github.io/Zinex-Visuals/amine-profile.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -22,23 +22,24 @@
         .logo-img { height: 40px; width: auto; }
         .hero { position: relative; height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; overflow: hidden; }
         .back-video { position: absolute; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -1; object-fit: cover; filter: brightness(0.3); }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(50px, 10vw, 100px); letter-spacing: 10px; margin-bottom: 20px; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(50px, 10vw, 100px); letter-spacing: 10px; margin-bottom: 20px; text-transform: uppercase; }
         .cta-container { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
         .premium-btn { padding: 12px 25px; text-decoration: none; color: white; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 4px; transition: 0.4s; }
         .btn-vision { border-color: var(--gold); color: var(--gold); }
         .btn-vision:hover { background: var(--gold); color: black; }
         .portfolio { padding: 100px 10%; text-align: center; background: #050505; }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
-        .video-card { background: #0f0f0f; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 8px; overflow: hidden; transition: 0.4s; cursor: pointer; }
+        .video-card { background: #0f0f0f; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 8px; overflow: hidden; transition: 0.4s; cursor: pointer; position: relative; }
         .video-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .video-card img { width: 100%; display: block; }
+        .video-card img { width: 100%; display: block; filter: grayscale(20%); transition: 0.5s; }
+        .video-card:hover img { filter: grayscale(0%); }
         footer { padding: 50px; text-align: center; opacity: 0.4; font-size: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 <nav>
     <a href="./index.html"><img src="logo.png" alt="ZINEX" class="logo-img"></a>
-    <div style="font-weight: 300; font-size: 10px; letter-spacing: 2px; color: var(--gold);">AMINE OV | WEB DEV</div>
+    <div style="font-weight: 300; font-size: 10px; letter-spacing: 2px; color: var(--gold);">AMINE OV | CREATIVE DIRECTOR</div>
 </nav>
 
 <section class="hero">
@@ -46,27 +47,27 @@
         <source src="https://assets.mixkit.co/videos/preview/mixkit-star-wars-style-text-scrolling-in-deep-space-34135-large.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-        <p style="letter-spacing: 5px; opacity: 0.7;">CREATIVE DIGITAL ARCHITECT</p>
+        <p style="letter-spacing: 5px; opacity: 0.7; font-size: 12px;">VISUAL STORYTELLING & WEB ARCHITECT</p>
         <h1>ZINEX</h1>
         <div class="cta-container">
             <a href="#portfolio" class="premium-btn btn-vision">استكشف الرؤية</a>
-            <a href="./gallery.html" class="premium-btn">المعرض الكامل</a>
+            <a href="./gallery.html" class="premium-btn">الأرشيف الكامل</a>
         </div>
     </div>
 </section>
 
 <section id="portfolio" class="portfolio">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 35px;">أحدث الإبداعات</h2>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold);">أحدث الإبداعات</h2>
     <div id="youtube-portfolio" class="video-grid">
         <p>جاري سحب المحتوى السينمائي...</p>
     </div>
 </section>
 
-<footer>© 2026 ZINEX STUDIO | BY AMINE OV</footer>
+<footer>© 2026 ZINEX STUDIO | DESIGNED BY AMINE OV</footer>
 
 <script>
     const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs'; 
-    const CHANNEL_ID = 'UCmP8f6_Y6XoDozv8vS_2X_w'; // قناة Vemix السينمائية
+    const CHANNEL_ID = 'UCmP8f6_Y6XoDozv8vS_2X_w'; // قناة Vemix الفخمة
 
     async function fetchVideos() {
         const container = document.getElementById('youtube-portfolio');
@@ -81,14 +82,14 @@
                     container.innerHTML += `
                         <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=${item.id.videoId}', '_blank')">
                             <img src="${item.snippet.thumbnails.high.url}" alt="Thumbnail">
-                            <h3 style="padding:15px; font-size:11px; font-weight:400; color:white; text-align:right;">${item.snippet.title}</h3>
+                            <h3 style="padding:15px; font-size:11px; font-weight:400; color:white; text-align:right; border-top:1px solid rgba(212,175,55,0.05);">${item.snippet.title}</h3>
                         </div>`;
                 });
             } else {
-                container.innerHTML = '<p>لا توجد فيديوهات متاحة حالياً.</p>';
+                container.innerHTML = '<p style="color:var(--gray);">لا توجد فيديوهات متاحة حالياً.</p>';
             }
         } catch (e) {
-            container.innerHTML = '<p>حدث خطأ في الاتصال باليوتيوب.</p>';
+            container.innerHTML = '<p>حدث خطأ في الاتصال.</p>';
         }
     }
     document.addEventListener('DOMContentLoaded', fetchVideos);
