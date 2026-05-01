@@ -7,30 +7,28 @@
     
     <meta property="og:image" content="https://raw.githubusercontent.com/allghalbanajzayrytamer-art/Zinex-Visuals/main/amine-profile.jpg">
     <meta property="og:title" content="ZINEX | Amine OV Portfolio">
+    <meta property="og:description" content="تجسيد الفخامة الرقمية.. دمج الفن السينمائي مع البرمجة الاحترافية. استكشف أعمال Amine OV.">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --dark: #050505; --gray: #a8a8a8; }
+        :root { --gold: #d4af37; --dark: #050505; }
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: white; line-height: 1.6; }
         nav { position: fixed; top: 0; width: 100%; padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-        .logo-img { height: 35px; width: auto; }
-        .hero { height: 70vh; display: flex; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #111 0%, #050505 100%); }
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #111 0%, #050505 100%); }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(50px, 10vw, 100px); letter-spacing: 12px; }
         
-        /* About Me Section */
-        .about-section { padding: 80px 10%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; background: #080808; border-bottom: 1px solid rgba(212,175,55,0.05); }
+        .about-section { padding: 80px 10%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; background: #080808; }
         .about-img { width: 320px; height: 420px; object-fit: cover; border: 1px solid var(--gold); border-radius: 4px; }
         .about-content { flex: 1; min-width: 300px; }
         .about-content h2 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--gold); margin-bottom: 20px; }
         
         .portfolio { padding: 80px 8%; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .video-card { background: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 4px; overflow: hidden; transition: 0.4s; cursor: pointer; }
         .video-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .video-card img { width: 100%; height: 200px; object-fit: cover; }
-
-        .btn-premium { padding: 12px 25px; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; border-radius: 4px; transition: 0.4s; display: inline-block; margin: 10px; }
+        
+        .btn { padding: 12px 25px; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; border-radius: 4px; transition: 0.4s; display: inline-block; margin: 10px; }
         .btn-gold { border: 1px solid var(--gold); color: var(--gold); }
         .btn-wa { border: 1px solid #25D366; color: #25D366; }
         .btn-fb { border: 1px solid #1877F2; color: #1877F2; }
@@ -39,35 +37,33 @@
 </head>
 <body>
 <nav>
-    <img src="logo.png" alt="ZINEX" class="logo-img">
-    <a href="./gallery.html" class="btn-premium btn-gold" style="margin:0;">المعرض الكامل</a>
+    <img src="logo.png" style="height: 35px;">
+    <a href="./gallery.html" class="btn btn-gold" style="margin:0;">المعرض الكامل</a>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <p style="letter-spacing: 8px; opacity: 0.5;">PREMIUM VISUAL ARTIST</p>
-        <h1>ZINEX</h1>
-    </div>
+    <p style="letter-spacing: 8px; opacity: 0.5;">PREMIUM VISUAL EXPERIENCE</p>
+    <h1>ZINEX</h1>
 </section>
 
 <section class="about-section">
     <img src="amine-profile.jpg" alt="Amine OV" class="about-img">
     <div class="about-content">
         <h2>About Me | Amine OV</h2>
-        <p>أنا أمين، متخصص في صياغة التجارب الرقمية الفريدة ودمج الفن السينمائي مع البرمجة. أسعى دائماً لتقديم رؤية بصرية تتجاوز التوقعات.</p>
+        <p>أنا أمين، متخصص في صياغة التجارب الرقمية الفريدة ودمج الفن السينمائي مع البرمجة الاحترافية. استكشف أعمالي التي تعكس رؤيتي الفنية.</p>
         <div style="margin-top:20px;">
-            <a href="https://wa.me/213663190202" class="btn-premium btn-wa">WhatsApp</a>
-            <a href="https://www.facebook.com/amine.ov.visuals" class="btn-premium btn-fb">Facebook</a>
+            <a href="https://wa.me/213663190202" class="btn btn-wa">WhatsApp</a>
+            <a href="https://www.facebook.com/amine.ov.visuals" class="btn btn-fb">Facebook</a>
         </div>
     </div>
 </section>
 
 <section class="portfolio">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; text-align: center;">أحدث الإبداعات</h2>
+    <h2 style="text-align: center; font-family: 'Playfair Display', serif; margin-bottom: 40px;">Latest Creations</h2>
     <div id="youtube-list" class="video-grid"></div>
 </section>
 
-<footer>© 2026 ZINEX STUDIO | BY AMINE OV</footer>
+<footer>ZINEX STUDIO 2026 © | CRAFTED BY AMINE OV</footer>
 
 <script>
     const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs'; 
@@ -82,12 +78,12 @@
                 data.items.forEach(item => {
                     container.innerHTML += `
                     <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=${item.id.videoId}')">
-                        <img src="${item.snippet.thumbnails.high.url}">
+                        <img src="${item.snippet.thumbnails.high.url}" style="width:100%; height:200px; object-fit:cover;">
                         <h3 style="padding:15px; font-size:11px; text-align:right;">${item.snippet.title}</h3>
                     </div>`;
                 });
             }
-        } catch (e) { container.innerHTML = 'خطأ في التحميل'; }
+        } catch (e) { console.log(e); }
     }
     document.addEventListener('DOMContentLoaded', fetchVideos);
 </script>
