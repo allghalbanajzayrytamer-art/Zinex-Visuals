@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Vision | Gallery</title>
+    <title>The Archive | Gallery</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #d4af37; --black: #050505; --gray: #a8a8a8; }
@@ -11,39 +11,40 @@
         body { font-family: 'Montserrat', sans-serif; background: var(--black); color: white; line-height: 1.6; }
         nav { padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.1); background: rgba(5, 5, 5, 0.9); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
         .logo-img { height: 40px; width: auto; }
-        .gallery-header { padding: 80px 10% 40px; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px 8%; }
-        .grid-item { position: relative; overflow: hidden; background: #111; height: 450px; cursor: pointer; border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; }
-        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; filter: brightness(0.6); }
-        .grid-item:hover img { transform: scale(1.1); filter: brightness(1); }
-        .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; opacity: 0; transition: 0.5s; }
+        .gallery-header { padding: 100px 10% 60px; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; padding: 20px 8%; }
+        .grid-item { position: relative; overflow: hidden; background: #111; height: 500px; cursor: pointer; border: 1px solid rgba(255,255,255,0.05); border-radius: 2px; }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1); filter: brightness(0.5) contrast(1.1); }
+        .grid-item:hover img { transform: scale(1.08); filter: brightness(0.9); }
+        .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 30px; opacity: 0; transition: 0.6s; }
         .grid-item:hover .overlay { opacity: 1; }
-        .cta-section { padding: 80px 10%; text-align: center; background: #080808; border-top: 1px solid rgba(212, 175, 55, 0.1); }
-        .btn-wa { border: 1px solid #25D366; color: #25D366; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
-        footer { padding: 40px; text-align: center; opacity: 0.3; font-size: 9px; }
+        .cta-section { padding: 100px 10%; text-align: center; background: #080808; border-top: 1px solid rgba(212, 175, 55, 0.05); }
+        .btn-wa { border: 1px solid #25D366; color: #25D366; padding: 15px 35px; text-decoration: none; border-radius: 4px; font-size: 12px; letter-spacing: 2px; font-weight: 700; transition: 0.4s; }
+        .btn-wa:hover { background: #25D366; color: black; }
+        footer { padding: 60px; text-align: center; opacity: 0.3; font-size: 9px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 <nav>
     <a href="./index.html"><img src="logo.png" alt="ZINEX" class="logo-img"></a>
-    <a href="./index.html" style="color:var(--gold); text-decoration:none; font-size:10px; letter-spacing:2px; font-weight:700;">HOME</a>
+    <a href="./index.html" style="color:var(--gold); text-decoration:none; font-size:10px; letter-spacing:2px; font-weight:700;">HOME / BACK</a>
 </nav>
 
 <div class="gallery-header">
-    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 50px);">الأرشيف الإبداعي</h1>
-    <p style="color: var(--gray); font-size: 13px; margin-top: 10px;">استكشف جميع الفيديوهات والمشاريع السينمائية</p>
+    <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 60px); color: var(--gold);">الأرشيف الإبداعي</h1>
+    <p style="color: var(--gray); font-size: 14px; margin-top: 15px; letter-spacing: 3px; opacity: 0.6;">CINEMATIC WORKS ARCHIVE</p>
 </div>
 
 <div id="youtube-gallery" class="grid">
-    <p style="grid-column: 1/-1; text-align: center; opacity: 0.5;">جاري تحميل الأرشيف السينمائي...</p>
+    <p style="grid-column: 1/-1; text-align: center; opacity: 0.5;">سحب البيانات من يوتيوب...</p>
 </div>
 
 <div class="cta-section">
-    <h2 style="margin-bottom: 25px; font-family: 'Playfair Display', serif;">ابدأ مشروعك السينمائي الآن</h2>
-    <a href="https://wa.me/213663190202" target="_blank" class="btn-wa">تواصل عبر WhatsApp</a>
+    <h2 style="margin-bottom: 35px; font-family: 'Playfair Display', serif; font-weight: 700;">هل أنت مستعد لمشروعك القادم؟</h2>
+    <a href="https://wa.me/213663190202" target="_blank" class="btn-wa">CONNECT VIA WHATSAPP</a>
 </div>
 
-<footer>© 2026 ZINEX STUDIO | BY AMINE OV</footer>
+<footer>© 2026 ZINEX STUDIO | CRAFTED BY AMINE OV</footer>
 
 <script>
     const API_KEY = 'AIzaSyALMuJtd_5zQCji0gVRqHkr2ckiCdngECs';
@@ -61,13 +62,13 @@
                         <div class="grid-item" onclick="window.open('https://www.youtube.com/watch?v=${item.id.videoId}', '_blank')">
                             <img src="${item.snippet.thumbnails.high.url}">
                             <div class="overlay">
-                                <h3 style="color:var(--gold); font-size:13px; margin-bottom:5px; text-align:right;">${item.snippet.title}</h3>
-                                <p style="font-size:9px; color:white; opacity:0.7; text-align:right;">WATCH IN 4K</p>
+                                <h3 style="color:var(--gold); font-size:14px; margin-bottom:8px; text-align:right;">${item.snippet.title}</h3>
+                                <p style="font-size:10px; color:white; opacity:0.6; text-align:right; font-weight:300;">ULTRA HD / CINEMATIC</p>
                             </div>
                         </div>`;
                 });
             }
-        } catch (e) { container.innerHTML = '<p>تعذر تحميل المعرض حالياً.</p>'; }
+        } catch (e) { container.innerHTML = '<p>تعذر الاتصال بالأرشيف.</p>'; }
     }
     window.onload = loadGallery;
 </script>
